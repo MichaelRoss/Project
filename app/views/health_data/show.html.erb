@@ -1,0 +1,39 @@
+<h1> Health Data <h1>
+  <h2> <%= @health_datum.created_at.to_date %></h2>
+
+<p>
+  <b>Weight:</b>
+  <%= @health_datum.weight %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @health_datum.height %>
+</p>
+
+<p>
+  <b>Respitory rate:</b>
+  <%= @health_datum.respitory_rate %>
+</p>
+
+<p>
+  <b>Blood pressure:</b>
+  <%= @health_datum.blood_pressure %>
+</p>
+
+<p>
+  <b>Coughs per day:</b>
+  <%= @health_datum.coughs_per_day %>
+</p>
+
+<p>
+  <b>Cigs per day:</b>
+  <%= @health_datum.cigs_per_day %>
+</p>
+
+
+<%= link_to 'Show Health Data History', health_data_path %>
+
+<%= render :partial => "/gp_diagnoses/form" %>
+
+

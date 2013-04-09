@@ -1,0 +1,21 @@
+<%= form_for(@gp_diagnosis) do |f| %>
+  <% if @gp_diagnosis.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gp_diagnosis.errors.count, "error") %> prohibited this gp_diagnosis from being saved:</h2>
+
+      <ul>
+      <% @gp_diagnosis.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :diagnosis %><br />
+    <%= f.text_area :diagnosis %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

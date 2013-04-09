@@ -1,0 +1,18 @@
+<h1>Listing gp_diagnoses</h1>
+
+<table border = "1">
+  <tr>
+    <th>Diagnosis</th>
+  </tr>
+
+<% @gp_diagnoses.each do |gp_diagnosis| %>
+  <tr>
+    <td><%= gp_diagnosis.diagnosis %></td>
+    <td><%= link_to 'Show', gp_diagnosis %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Write New Diagnosis', new_gp_diagnosis_path %>
