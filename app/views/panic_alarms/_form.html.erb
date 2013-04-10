@@ -1,0 +1,21 @@
+<%= form_for(@panic_alarm) do |f| %>
+  <% if @panic_alarm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@panic_alarm.errors.count, "error") %> prohibited this panic_alarm from being saved:</h2>
+
+      <ul>
+      <% @panic_alarm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :activated %><br />
+    <%= f.check_box :activated %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

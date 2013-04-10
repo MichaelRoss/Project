@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409225549) do
+ActiveRecord::Schema.define(:version => 20130410195820) do
 
   create_table "gp_diagnoses", :force => true do |t|
     t.text     "diagnosis"
@@ -36,6 +36,38 @@ ActiveRecord::Schema.define(:version => 20130409225549) do
     t.integer  "cigs_per_day"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "panic_alarms", :force => true do |t|
+    t.boolean  "activated"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sensor_data", :force => true do |t|
+    t.integer  "sensor"
+    t.string   "sensor_name"
+    t.datetime "time"
+    t.boolean  "state"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sleep_data", :force => true do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "sleepquality"
+    t.float    "timeinbed"
+    t.string   "mood"
+    t.string   "notes"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "sw_diaries", :force => true do |t|
+    t.text     "diary"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

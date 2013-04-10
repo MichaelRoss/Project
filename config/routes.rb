@@ -1,6 +1,9 @@
 Website::Application.routes.draw do
  
-
+  resources :sensor_data
+  resources :sleep_data
+  resources :panic_alarms
+  resources :sw_diaries
   resources :health_data
   resources :gps_data
   resources :gp_diagnoses

@@ -1,0 +1,19 @@
+<h1>Listing sw_diaries</h1>
+
+<table>
+  <tr>
+    <th>Diary</th>
+
+  </tr>
+
+<% @sw_diaries.each do |sw_diary| %>
+  <tr>
+    <td><%= sw_diary.diary %></td>
+    <td><%= link_to 'Show', sw_diary %></td>
+  </tr>fac
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sw diary', new_sw_diary_path %>

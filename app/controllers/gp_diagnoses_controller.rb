@@ -32,11 +32,6 @@ class GpDiagnosesController < ApplicationController
     end
   end
 
-  # GET /gp_diagnoses/1/edit
-  def edit
-    @gp_diagnosis = GpDiagnosis.find(params[:id])
-  end
-
   # POST /gp_diagnoses
   # POST /gp_diagnoses.json
   def create
@@ -52,32 +47,5 @@ class GpDiagnosesController < ApplicationController
       end
     end
   end
-
-  # PUT /gp_diagnoses/1
-  # PUT /gp_diagnoses/1.json
-  def update
-    @gp_diagnosis = GpDiagnosis.find(params[:id])
-
-    respond_to do |format|
-      if @gp_diagnosis.update_attributes(params[:gp_diagnosis])
-        format.html { redirect_to @gp_diagnosis, notice: 'Gp diagnosis was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @gp_diagnosis.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /gp_diagnoses/1
-  # DELETE /gp_diagnoses/1.json
-  def destroy
-    @gp_diagnosis = GpDiagnosis.find(params[:id])
-    @gp_diagnosis.destroy
-
-    respond_to do |format|
-      format.html { redirect_to gp_diagnoses_url }
-      format.json { head :no_content }
-    end
-  end
+  
 end

@@ -1,0 +1,2 @@
+module PanicAlarmsHelper
+end

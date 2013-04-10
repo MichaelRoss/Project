@@ -1,0 +1,20 @@
+<h1>Listing panic_alarms</h1>
+
+<table>
+  <tr>
+    <th>Activated</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @panic_alarms.each do |panic_alarm| %>
+  <tr>
+    <td><%= panic_alarm.activated %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Panic alarm', new_panic_alarm_path %>
