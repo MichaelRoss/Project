@@ -1,4 +1,222 @@
+#set up the roles
+["GP", "Social Worker", "Nurse", "Family", "Patient"].each do |role|
+r = Role.find_or_create_by_name(role)
+end
 
+#set up the rights
+r = Right.new
+r.name = "cigs per day index"
+r.controller = "cigs_per_days"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "cigs per day new"
+r.controller = "cigs_per_days"
+r.action = "new"
+r.save
+
+r = Right.new
+r.name = "cigs per day create"
+r.controller = "cigs_per_days"
+r.action = "create"
+r.save
+
+r = Right.new
+r.name = "family instructions"
+r.controller = "family"
+r.action = "instructions"
+r.save
+
+r = Right.new
+r.name = "family movements"
+r.controller = "family"
+r.action = "movements"
+r.save
+
+r = Right.new
+r.name = "gp_diagnoses index"
+r.controller = "gp_diagnoses"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "gp_diagnoses show"
+r.controller = "gp_diagnoses"
+r.action = "show"
+r.save
+
+r = Right.new
+r.name = "gp_diagnoses new"
+r.controller = "gp_diagnoses"
+r.action = "new"
+r.save
+
+r = Right.new
+r.name = "gp_diagnoses create"
+r.controller = "gp_diagnoses"
+r.action = "create"
+r.save
+
+r = Right.new
+r.name = "gps_data index"
+r.controller = "gps_data"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "health data index"
+r.controller = "health_data"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "health data show"
+r.controller = "health_data"
+r.action = "show"
+r.save
+
+r = Right.new
+r.name = "health data new"
+r.controller = "health_data"
+r.action = "new"
+r.save
+
+r = Right.new
+r.name = "health data create"
+r.controller = "health_data"
+r.action = "create"
+r.save
+
+r = Right.new
+r.name = "panic_alarms index"
+r.controller = "panic_alarms"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "panic_alarms new"
+r.controller = "panic_alarms"
+r.action = "new"
+r.save
+
+r = Right.new
+r.name = "panic_alarms create"
+r.controller = "panic_alarms"
+r.action = "create"
+r.save
+
+r = Right.new
+r.name = "sensor data index"
+r.controller = "sensor_data"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "sleep data index"
+r.controller = "sleep_data"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "sw diaries index"
+r.controller = "sw_diaries"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "sw diaries show"
+r.controller = "sw_diaries"
+r.action = "show"
+r.save
+
+r = Right.new
+r.name = "sw diaries new"
+r.controller = "sw_diaries"
+r.action = "new"
+r.save
+
+r = Right.new
+r.name = "sw diaries create"
+r.controller = "sw_diaries"
+r.action = "create"
+r.save
+
+#allocate rights to roles
+[1,6,7,8,9,10,11,12,18,19,20,21].each do |i|
+   rl = Role.find_by_id(1)
+   rl.rights << Right.find_by_id(i)
+   rl.save
+end
+
+[1,6,7,10,11,12,18,19,22,23].each do |i|
+   rl = Role.find_by_id(2)
+   rl.rights << Right.find_by_id(i)
+   rl.save
+end
+
+[1,6,7,10,11,12,13,14,18,19,20,21].each do |i|
+   rl = Role.find_by_id(3)
+   rl.rights << Right.find_by_id(i)
+   rl.save
+end
+
+[4,5,15,19].each do |i|
+   rl = Role.find_by_id(4)
+   rl.rights << Right.find_by_id(i)
+   rl.save
+end
+
+[1,2,3,5,11,12,16,17,19].each do |i|
+   rl = Role.find_by_id(5)
+   rl.rights << Right.find_by_id(i)
+   rl.save
+end
+
+#create GP user and allocate role
+u = User.new
+u.name = "GP"
+u.email = "gp@gp.com"
+u.password = "password"
+u.password_confirmation = "password"
+u.roles << Role.find_by_name("GP")
+u.save
+
+#create GP user and allocate role
+u = User.new
+u.name = "Social Worker"
+u.email = "socialworker@socialworker.com"
+u.password = "password"
+u.password_confirmation = "password"
+u.roles << Role.find_by_name("Social Worker")
+u.save
+
+#create GP user and allocate role
+u = User.new
+u.name = "Nurse"
+u.email = "nurse@nurse.com"
+u.password = "password"
+u.password_confirmation = "password"
+u.roles << Role.find_by_name("Nurse")
+u.save
+
+#create GP user and allocate role
+u = User.new
+u.name = "Alice"
+u.email = "alice@alice.com"
+u.password = "password"
+u.password_confirmation = "password"
+u.roles << Role.find_by_name("Family")
+u.save
+
+#create GP user and allocate role
+u = User.new
+u.name = "Bert"
+u.email = "bert@bert.com"
+u.password = "password"
+u.password_confirmation = "password"
+u.roles << Role.find_by_name("Patient")
+u.save
 
 #create dummy health data
 hd = HealthDatum.new

@@ -1,23 +1,19 @@
-<h1>Listing cigs_per_days</h1>
+<h1>Number of Cigarettes per day History</h1>
 
-<table>
+<table border = '1'>
   <tr>
+    <th>Date</th>
     <th>No of cigs</th>
-    <th></th>
-    <th></th>
-    <th></th>
+ 
   </tr>
 
 <% @cigs_per_days.each do |cigs_per_day| %>
   <tr>
+    <td><%= cigs_per_day.created_at.to_date.strftime("%d/%m/%Y")%></td>
     <td><%= cigs_per_day.no_of_cigs %></td>
     <td><%= link_to 'Show', cigs_per_day %></td>
-    <td><%= link_to 'Edit', edit_cigs_per_day_path(cigs_per_day) %></td>
-    <td><%= link_to 'Destroy', cigs_per_day, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Cigs per day', new_cigs_per_day_path %>

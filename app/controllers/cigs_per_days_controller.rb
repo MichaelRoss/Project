@@ -32,11 +32,6 @@ class CigsPerDaysController < ApplicationController
     end
   end
 
-  # GET /cigs_per_days/1/edit
-  def edit
-    @cigs_per_day = CigsPerDay.find(params[:id])
-  end
-
   # POST /cigs_per_days
   # POST /cigs_per_days.json
   def create
@@ -53,31 +48,4 @@ class CigsPerDaysController < ApplicationController
     end
   end
 
-  # PUT /cigs_per_days/1
-  # PUT /cigs_per_days/1.json
-  def update
-    @cigs_per_day = CigsPerDay.find(params[:id])
-
-    respond_to do |format|
-      if @cigs_per_day.update_attributes(params[:cigs_per_day])
-        format.html { redirect_to @cigs_per_day, notice: 'Cigs per day was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @cigs_per_day.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /cigs_per_days/1
-  # DELETE /cigs_per_days/1.json
-  def destroy
-    @cigs_per_day = CigsPerDay.find(params[:id])
-    @cigs_per_day.destroy
-
-    respond_to do |format|
-      format.html { redirect_to cigs_per_days_url }
-      format.json { head :no_content }
-    end
-  end
 end

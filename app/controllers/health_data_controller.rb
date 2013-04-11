@@ -34,11 +34,6 @@ class HealthDataController < ApplicationController
     end
   end
 
-  # GET /health_data/1/edit
-  def edit
-    @health_datum = HealthDatum.find(params[:id])
-  end
-
   # POST /health_data
   # POST /health_data.json
   def create
@@ -52,34 +47,6 @@ class HealthDataController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @health_datum.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PUT /health_data/1
-  # PUT /health_data/1.json
-  def update
-    @health_datum = HealthDatum.find(params[:id])
-
-    respond_to do |format|
-      if @health_datum.update_attributes(params[:health_datum])
-        format.html { redirect_to @health_datum, notice: 'Health datum was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @health_datum.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /health_data/1
-  # DELETE /health_data/1.json
-  def destroy
-    @health_datum = HealthDatum.find(params[:id])
-    @health_datum.destroy
-
-    respond_to do |format|
-      format.html { redirect_to health_data_url }
-      format.json { head :no_content }
     end
   end
 end
