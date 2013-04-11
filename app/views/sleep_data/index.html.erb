@@ -12,10 +12,11 @@
 <a href="#" id="link_1">Sleep Quality Graph</a></br>
 <a href="#" id="link_2">Time in Bed Graph</a></br></br>
 
+<%= will_paginate @sd,:page_links => false %>
 <ul class="thumbnails">
 <% @sd.each do |sleep_data| %>
 <li class="span4">
-<p> Day: <%=sleep_data.start_time.to_date%></br></br>
+<p> Day: <%=sleep_data.start_time.to_date.strftime("%d/%m/%Y")%></br></br>
 Went to bed: <%=sleep_data.start_time.strftime('%H:%M:%S')%> </br>
 Woke up: <%=sleep_data.end_time.strftime('%H:%M:%S')%> </br>
 Sleep Quality: <%=sleep_data.sleepquality%>%</br>
@@ -34,8 +35,8 @@ new Morris.Bar({
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
-  <% @sd.each do |sleep_data| %>
-    { Day: '<%= sleep_data.start_time.to_date %>', SleepQuality:'<%= sleep_data.sleepquality %>' },
+  <% @graph_data.each do |sleep_data| %>
+    { Day: '<%= sleep_data.start_time.to_date.strftime("%d/%m/%Y")%>', SleepQuality:'<%= sleep_data.sleepquality %>' },
 <%end%>
   ],
   // The name of the data record attribute that contains x-values.
@@ -56,7 +57,7 @@ new Morris.Bar({
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
-  <% @sd.each do |sleep_data| %>
+  <% @graph_data.each do |sleep_data| %>
     { Day: '<%= sleep_data.start_time.to_date %>', SleepTime:'<%= sleep_data.timeinbed %>' },
 <%end%>
   ],
@@ -78,6 +79,7 @@ $(document).ready(function(){
   $('#moodchart').hide();
 
   $('#link_2').click(function(){
+    document.getElementById('sleepqualitychary').id = 'moodchart'
       $('#sleepqualitychart').hide();
       $('#moodchart').show();
   });

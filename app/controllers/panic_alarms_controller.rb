@@ -39,8 +39,8 @@ class PanicAlarmsController < ApplicationController
 
     respond_to do |format|
       if @panic_alarm.save
-        format.html { redirect_to @panic_alarm, notice: 'Panic alarm was successfully created.' }
-        format.json { render json: @panic_alarm, status: :created, location: @panic_alarm }
+        format.html { redirect_to root_path, notice: 'Panic Alarm was Activated' }
+        format.json { render json: root_path, status: :created, location: @panic_alarm }
       else
         format.html { render action: "new" }
         format.json { render json: @panic_alarm.errors, status: :unprocessable_entity }

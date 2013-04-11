@@ -1,0 +1,21 @@
+<%= form_for(@cigs_per_day) do |f| %>
+  <% if @cigs_per_day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cigs_per_day.errors.count, "error") %> prohibited this cigs_per_day from being saved:</h2>
+
+      <ul>
+      <% @cigs_per_day.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :no_of_cigs %><br />
+    <%= f.number_field :no_of_cigs %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

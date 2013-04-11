@@ -15,7 +15,7 @@ class HealthDataController < ApplicationController
   def show
     @health_datum = HealthDatum.find(params[:id])
 
-    @gp_diagnosis = GpDiagnosis.new
+    @cigs_per_day = CigsPerDay.last
     
     respond_to do |format|
       format.html # show.html.erb

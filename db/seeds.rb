@@ -1,3 +1,5 @@
+
+
 #create dummy health data
 hd = HealthDatum.new
 hd.weight = 83.6
@@ -5,52 +7,64 @@ hd.height = 175.3
 hd.respitory_rate = 17
 hd.blood_pressure = 120
 hd.coughs_per_day = 12
-hd.cigs_per_day = 10
 hd.save
 
 #create dummy gps data
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:38:10"
-gps.lat = 56.457703
-gps.lng = -2.987268
+gps.lat = 56.46743
+gps.lng = -3.05511
 gps.save
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:39:56"
-gps.lat = 56.458435
-gps.lng = -2.985888
+gps.lat = 56.46804
+gps.lng = -3.05508
 gps.save
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:40:11"
-gps.lat = 56.458420
-gps.lng = -2.984620
+gps.lat = 56.46823
+gps.lng = -3.05408
 gps.save
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:40:42"
-gps.lat = 56.458511
-gps.lng = -2.987268
+gps.lat = 56.46952
+gps.lng = -3.05253
 gps.save
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:40:58"
-gps.lat = 56.458611
-gps.lng = -2.984516
+gps.lat = 56.46813
+gps.lng = -3.05098
 gps.save
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:41:05"
-gps.lat = 56.458664
-gps.lng = -2.984383
+gps.lat = 56.46764
+gps.lng = -3.04563
 gps.save
 
 gps = GpsData.new 
 gps.time = "2013-03-06 15:41:36"
-gps.lat = 56.458881
-gps.lng = -2.983017
+gps.lat = 56.46863
+gps.lng = -3.03925
 gps.save
+
+gps = GpsData.new 
+gps.time = "2013-03-06 15:41:36"
+gps.lat = 56.46819
+gps.lng = -3.03892
+gps.save
+
+gps = GpsData.new 
+gps.time = "2013-03-06 15:41:36"
+gps.lat = 56.46815
+gps.lng = -3.03965
+gps.save
+
 
 #create dummy sleep data
 
