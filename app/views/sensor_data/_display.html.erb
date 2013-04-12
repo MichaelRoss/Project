@@ -1,1 +1,28 @@
-<p> This will be where the home sensor data goes </p>
+<p> Sensor Data WILL NOT BE DISPLAYED!</p>
+<% @sensor_data.each do |sd| %>
+<%=sd.sensor_name %>
+<%=sd.time %>
+<%= sd.state %>
+</br>
+<%end%>
+
+<% $time = [] %>
+
+<% (0..@sensor_data.last.id-1).each do |i| %>
+	<% if @sensor_data[i].sensor > 60 %>	
+		<% if @sensor_data[i].id != @sensor_data.first.id && @sensor_data[i].id != @sensor_data.last.id  %>
+			<% if @sensor_data[i].sensor != @sensor_data[i-1].sensor %>
+				<% $start_time = @sensor_data[i].time %>
+			<%end%>
+			<% if @sensor_data[i].sensor != @sensor_data[i+1].sensor %>
+				<% $end_time = @sensor_data[i].time %>
+				<%$time.push($end_time - $start_time) %>
+			<%end%>
+		<%end%>
+	<%end%>
+<%end%>
+
+<% $time_in_master = $time.sum %>
+<h3>Time in rooms</h3>
+
+<p> Master Bedroom: <%= Time.at($time_in_master).utc.strftime("%Mmin(s) %S seconds")%> </p>

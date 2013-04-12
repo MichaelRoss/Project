@@ -1,12 +1,20 @@
+<%unless current_user.blank?%>
+<p> You are signed in as <%= current_user.name%> </p>
+<p> Role: <%= current_user.roles.first.name %>
 <div class="center hero-unit">
   <h1>Home</h1>
-  <p> General </p>
-<%= link_to "Movement Outside The Home", gps_data_path, :class=> "btn btn-large btn-primary" %></br></br>
-<%= link_to "Health Data", @Health_Data, :class=> "btn btn-large btn-primary" %></br></br>
-<%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-primary" %></br></br>
-<%= link_to "Movement Within The Home", sensor_data_path, :class=> "btn btn-large btn-primary" %></br></br>
 
-<p> Patient Only </p>
+
+<%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-primary" %></br></br>
+
+<%if current_user.roles.first.name != "Family" %>
+<%= link_to "Health Data", @Health_Data, :class=> "btn btn-large btn-primary" %></br></br>
+<%= link_to "Movement Outside The Home", gps_data_path, :class=> "btn btn-large btn-primary" %></br></br>
+<%= link_to "Movement Within The Home", sensor_data_path, :class=> "btn btn-large btn-primary" %></br></br>
+<%end%>
+
+<%if current_user.roles.first.name == "Patient" %>
+
 <%= form_for(@panic_alarm) do |f| %>
 	<div class="field">
     	<%= f.hidden_field :activated, :value =>'true' %>
@@ -16,20 +24,25 @@
   	</div>
 <% end %>
 <%= link_to "Input Number of Cigarettes Today", new_cigs_per_day_path, :class=> "btn btn-large btn-primary" %></br></br>
+<%end%>
 
+<%if current_user.roles.first.name == "Family" %>
 
-
-<p>Family Only </p>
 <%= link_to "Panic Alarm History", panic_alarms_path, :class=> "btn btn-large btn-primary" %></br></br>
 <%= link_to "View Health Data and Notes", instructions_family_index_path, :class=> "btn btn-large btn-primary" %></br></br>
 
 <%= link_to "View Movements", movements_family_index_path, :class=> "btn btn-large btn-primary" %></br></br>
+<% end%>
 
-<p>Social Worker Only</p>
+<%if current_user.roles.first.name == "Social Worker" %>
+
 <%= link_to "View GP Diagnosis", @gp_diagnosis, :class=> "btn btn-large btn-primary" %></br></br>
 <%= link_to "Write Diary", new_sw_diary_path, :class=> "btn btn-large btn-primary" %></br></br>
+<%end%>
 
-<p>GP Only</p>
+<%if current_user.roles.first.name == "GP" %>
+
 <%= link_to "Write Diagnosis", new_gp_diagnosis_path, :class=> "btn btn-large btn-primary" %></br></br>
-
+<%end%>
+<%end%>
 </div>

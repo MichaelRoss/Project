@@ -8,5 +8,6 @@ class FamilyController < ApplicationController
 
 	def movements
 		 @g = GpsData.all
+		 @sensor_data = SensorData.all
 	end
 end

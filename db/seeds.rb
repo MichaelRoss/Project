@@ -349,5 +349,92 @@ sd.mood = ":|"
 sd.notes = "Drank Caffeine Drink"
 sd.save
 
+#create sensor data
+@@time = "2013-04-03 07:29:57"
+$i = 0
+
+s = SensorData.new
+s.sensor = 12
+s.sensor_name = "Front Door"
+s.time = "2013-04-03 00:53:21"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 48
+s.sensor_name = "MB-Bed Left"
+s.time = "2013-04-03 07:29:51"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 64
+s.sensor_name = "Master Bedroom"
+s.time = @@time
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 64
+s.sensor_name = "Master Bedroom"
+s.time = @@time.to_time + 1.seconds
+s.state = false
+s.save
+
+while $i < 2 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
+
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+   s.sensor = 50
+   s.sensor_name = "MB-Wardrobe Left"
+   s.time = "2013-04-03 07:30:18"
+   s.state = false
+   s.save
+
+$i = 0
+
+while $i < 11 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
+
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+   s.sensor = 49
+   s.sensor_name = "MB-Wardrobe Right"
+   s.time = "2013-04-03 07:31:56"
+   s.state = false
+   s.save
 
 
