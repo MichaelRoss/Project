@@ -1,0 +1,74 @@
+<h1>Meeting Requests</h1>
+
+<h2> Meeting Requests Recieved</h2>
+
+<table class = "table">
+  <tr>
+    <th>Requested By</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Response</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meetings_with.each do |meeting| %>
+
+  <tr>
+     <td><% @users.each do |u| %>
+        <% if u.id == meeting.requested_by%>
+            <%= u.name %>
+            <%end%>
+        <%end%>
+    </td>
+    <td><%= meeting.date %></td>
+    <td><%= meeting.time.strftime('%H:%M') %></td>
+    <td><% if meeting.response == true %>
+        <%= "I can make it" %>
+    <%elsif meeting.response == false %>
+        <%="I can't make it" %>
+    <%else %>
+        <%="Not responded" %>
+    <%end%></td>
+    <td><%= link_to 'View Request', meeting, :class=> "btn btn-small btn-primary"  %></td>
+    <td><%= link_to 'Respond', edit_meeting_path(meeting), :class=> "btn btn-small btn-primary"  %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2> Meeting Requests Sent </h2>
+<table class = "table">
+  <tr>
+    <th>With</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Response</th>
+    <th></th>
+  </tr>
+
+<% @meetings_requested.each do |meeting| %>
+  <tr>
+    <td><% @users.each do |u| %>
+        <% if u.id == meeting.with%>
+            <%= u.name %>
+            <%end%>
+        <%end%>
+    </td>
+    <td><%= meeting.date %></td>
+    <td><%= meeting.time.strftime('%H:%M') %></td>
+    <td><% if meeting.response == true %>
+        <%= "I can make it" %>
+    <%elsif meeting.response == false %>
+        <%="I can't make it" %>
+    <%else %>
+        <%="Not responded" %>
+    <%end%></td>
+    <td><%= link_to 'View Request', meeting, :class=> "btn btn-small btn-primary"  %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Meeting', new_meeting_path %>

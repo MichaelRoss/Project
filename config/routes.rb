@@ -1,5 +1,7 @@
 Website::Application.routes.draw do
 
+  resources :meetings
+
   resources :cigs_per_days
 
   #match "family/instructions" => "family#instructions"

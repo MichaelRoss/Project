@@ -218,9 +218,14 @@
     <div align = "center">
       Map of Movements
       <div id="map-canvas" style="position:relative;width:640px; height:400px; border: 1px solid black;"></div>
-      Elevation Graph
-      <div id="elevation_chart" style="width:640px; height:200px; "></div>
-      <div id="speed_chart" style="width:640px; height:200px; "></div>
+      <%if current_user.roles.first.name == "GP" %>
+        <% $visible = "show" %>
+      <%else%>
+        <% $visible = "hidden" %>
+      <%end%>
+
+        <div id="elevation_chart" style="width:640px; height:200px; visibility:"<%=$visible%>></div>
+        <div id="speed_chart" style="width:640px; height:200px; visibility:"<%=$visible%>></div>
       <p id="test">Blah</p>
       <p id="test1">Blah</p>
     </div>

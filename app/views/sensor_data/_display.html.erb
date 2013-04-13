@@ -1,28 +1,166 @@
-<p> Sensor Data WILL NOT BE DISPLAYED!</p>
-<% @sensor_data.each do |sd| %>
-<%=sd.sensor_name %>
-<%=sd.time %>
-<%= sd.state %>
-</br>
-<%end%>
+<h2> <%= @sensor_data.first.time.to_date %><h2>
+<h2> Between <%= @sensor_data.first.time.strftime('%H:%M:%S') %> and <%= @sensor_data.last.time.strftime('%H:%M:%S') %>  <h2>
 
-<% $time = [] %>
+<% $time_master = [] %>
+<% $time_hallway = [] %>
+<% $time_bathroom = [] %>
+<% $sensor_4 = [] %>
+<% $sensor_7 = [] %>
+<% $sensor_12 = [] %>
+<% $sensor_48 = [] %>
+<% $sensor_49 = [] %>
+<% $sensor_50 = [] %>
+<% $sensor_52 = [] %>
 
 <% (0..@sensor_data.last.id-1).each do |i| %>
 	<% if @sensor_data[i].sensor > 60 %>	
 		<% if @sensor_data[i].id != @sensor_data.first.id && @sensor_data[i].id != @sensor_data.last.id  %>
 			<% if @sensor_data[i].sensor != @sensor_data[i-1].sensor %>
 				<% $start_time = @sensor_data[i].time %>
-			<%end%>
-			<% if @sensor_data[i].sensor != @sensor_data[i+1].sensor %>
+			<% elsif @sensor_data[i].sensor != @sensor_data[i+1].sensor %>
 				<% $end_time = @sensor_data[i].time %>
-				<%$time.push($end_time - $start_time) %>
+				<% if @sensor_data[i].sensor == 64 %>
+					<%$time_master.push($end_time - $start_time) %>
+				<% elsif @sensor_data[i].sensor == 61 %>
+					<%$time_hallway.push($end_time - $start_time) %>
+				<% elsif @sensor_data[i].sensor == 65 %>
+					<%$time_bathroom.push($end_time - $start_time) %>
+				<%end%>
 			<%end%>
 		<%end%>
+	<% elsif @sensor_data[i].sensor <60 %>
+		<% if @sensor_data[i].sensor == 50 %>
+			<% $sensor_50.push(@sensor_data[i]) %>
+		<%end%>
+		<% if @sensor_data[i].sensor == 12 %>
+			<% $sensor_12.push(@sensor_data[i]) %>
+		<%end%>
+		<% if @sensor_data[i].sensor == 48 %>
+			<% $sensor_48.push(@sensor_data[i]) %>
+		<%end%>
+		<% if @sensor_data[i].sensor == 49 %>
+			<% $sensor_49.push(@sensor_data[i]) %>
+		<%end%>
+		<% if @sensor_data[i].sensor == 52 %>
+			<% $sensor_52.push(@sensor_data[i]) %>
+		<%end%>
+		<% if @sensor_data[i].sensor == 4 %>
+			<% $sensor_4.push(@sensor_data[i]) %>
+		<%end%>
+		<% if @sensor_data[i].sensor == 7 %>
+			<% $sensor_7.push(@sensor_data[i]) %>
+		<%end%>
 	<%end%>
+
 <%end%>
 
-<% $time_in_master = $time.sum %>
-<h3>Time in rooms</h3>
+<% $time_in_master = $time_master.sum %>
+<% $time_in_hallway = $time_hallway.sum %>
+<% $time_in_bathroom = $time_bathroom.sum %>
 
-<p> Master Bedroom: <%= Time.at($time_in_master).utc.strftime("%Mmin(s) %S seconds")%> </p>
+<h3>Time in rooms:</h3>
+
+<p> <%= @sensor_data.detect{|w| w.sensor == 64}.sensor_name + ':' %> <%= Time.at($time_in_master).utc.strftime("%Mmin(s) %S seconds")%> </p>
+<p> <%= @sensor_data.detect{|w| w.sensor == 61}.sensor_name + ':' %> <%= Time.at($time_in_hallway).utc.strftime("%Mmin(s) %S seconds")%> </p>
+<p> <%= @sensor_data.detect{|w| w.sensor == 65}.sensor_name + ':' %> <%= Time.at($time_in_bathroom).utc.strftime("%Mmin(s) %S seconds")%> </p>
+
+<h3 >Interactions:</h3>
+<ul class="thumbnails">
+	<li class = "span3"> 
+		<p class="thumbnail">
+		<%= @sensor_data.detect{|w| w.sensor == 4}.sensor_name %>:</br>
+			<% (0..$sensor_4.size-1).each do |i| %>
+					<% if $sensor_4[i].state == true %>
+						<%= $sensor_4[i].time.strftime('%H:%M:%S')%>
+						<%= "Opened"%></br>
+					<% elsif $sensor_4[i].state == false %>
+						<%= $sensor_4[i].time.strftime('%H:%M:%S')%>
+						<%= "Closed"%></br>
+					<%end%>
+		<%end%>
+	</p>
+	</li>
+
+	<li class = "span3"> 
+		<p class="thumbnail">
+
+		<%= @sensor_data.detect{|w| w.sensor == 7}.sensor_name %>:</br>
+		<% (0..$sensor_7.size-1).each do |i| %>
+			<% if $sensor_7[i].state == true %>
+				<%= $sensor_7[i].time.strftime('%H:%M:%S')%>
+				<%= "Opened"%></br>
+			<% elsif $sensor_7[i].state == false %>
+				<%= $sensor_7[i].time.strftime('%H:%M:%S')%>
+				<%= "Closed"%></br>
+			<%end%>
+		<%end%>
+	</p></li>
+
+	<li class = "span3"> 
+	 <p class="thumbnail">
+	 	<%= @sensor_data.detect{|w| w.sensor == 12}.sensor_name %>:</br>
+		<% (0..$sensor_12.size-1).each do |i| %>
+			<% if $sensor_12[i].state == true %>
+				<%= $sensor_12[i].time.strftime('%H:%M:%S')%>
+				<%= "Opened"%></br>
+			<% elsif $sensor_12[i].state == false %>
+				<%= $sensor_12[i].time.strftime('%H:%M:%S')%>
+				<%= "Closed"%></br>
+			<%end%>
+		<%end%>
+	</p></li>
+
+	<li class = "span3"> 
+	 <p  class="thumbnail">
+	 	<%= @sensor_data.detect{|w| w.sensor == 48}.sensor_name %>:</br>
+		<% (0..$sensor_48.size-1).each do |i| %>
+			<% if $sensor_48[i].state == true %>
+				<%= $sensor_48[i].time.strftime('%H:%M:%S')%>
+				<%= "Got into/Sat on bed"%></br>
+			<% elsif $sensor_48[i].state == false %>
+				<%= $sensor_48[i].time.strftime('%H:%M:%S')%>
+				<%= "Got up"%></br>
+			<%end%>
+		<%end%>
+	</p></li>
+
+	<li class = "span3"> 
+		<p  class="thumbnail">
+			<%= @sensor_data.detect{|w| w.sensor == 49}.sensor_name %>:</br>
+		<% (0..$sensor_49.size-1).each do |i| %>
+			<% if $sensor_49[i].state == true %>
+				<%= $sensor_49[i].time.strftime('%H:%M:%S')%>
+				<%= "Closed"%></br>
+			<% elsif $sensor_49[i].state == false %>
+				<%= $sensor_49[i].time.strftime('%H:%M:%S')%>
+				<%= "Opened"%></br>
+			<%end%>
+		<%end%>
+	</p></li>
+
+	<li class = "span3"> 
+	 <p class="thumbnail">
+	 	<%= @sensor_data.detect{|w| w.sensor == 50}.sensor_name %>:</br>
+		<% (0..$sensor_50.size-1).each do |i| %>
+			<% if $sensor_50[i].state == true %>
+				<%= $sensor_50[i].time.strftime('%H:%M:%S')%>
+				<%= "Closed"%></br>
+			<% elsif $sensor_50[i].state == false %>
+				<%= $sensor_50[i].time.strftime('%H:%M:%S')%>
+				<%= "Opened"%></br>
+			<%end%>
+		<%end%>
+	</p></li>
+
+	<li class = "span3"> 
+		<p class="thumbnail">
+			<%= @sensor_data.detect{|w| w.sensor == 52}.sensor_name %>:</br>
+			<% (0..$sensor_52.size-1).each do |i| %>
+				<% if $sensor_52[i].state == true %>
+					<%= $sensor_52[i].time.strftime('%H:%M:%S')%>
+					<%= "Flushed"%></br>
+				<%end%>
+			<%end%>
+		</p>
+	</li>
+</ul>

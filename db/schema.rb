@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411133724) do
+ActiveRecord::Schema.define(:version => 20130413220050) do
 
   create_table "cigs_per_day", :force => true do |t|
     t.integer  "no_of_cigs"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(:version => 20130411133724) do
     t.integer  "coughs_per_day"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "meetings", :force => true do |t|
+    t.integer  "requested_by"
+    t.integer  "with"
+    t.date     "date"
+    t.time     "time"
+    t.boolean  "response"
+    t.text     "notes"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "panic_alarms", :force => true do |t|

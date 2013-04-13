@@ -1,0 +1,35 @@
+<h1>Respond to Meeting Request</h1>
+
+<p> You're current respone to this meeting is: 
+	<% if @meeting.response == true %>
+		</br></br><%= "I can make it" %>
+	<%elsif @meeting.response == false %>
+		</br></br><%= "I can't make it" %>
+	<%else %>
+		</br></br><%= "Not responded" %>
+	<%end%>
+</br></br>Please tick the box below if you can make this meeting </p>
+<%= form_for(@meeting) do |f| %>
+  <% if @meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% @meeting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.check_box :response %>
+  </div>
+  </br>
+  <div class="actions">
+    <%= f.submit "Respond", :class=> "btn btn-large btn-primary"  %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @meeting %> |
+<%= link_to 'Back', meetings_path %>

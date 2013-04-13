@@ -1,4 +1,3 @@
-<%unless current_user.blank?%>
 <p> You are signed in as <%= current_user.name%> </p>
 <p> Role: <%= current_user.roles.first.name %>
 <div class="center hero-unit">
@@ -44,5 +43,5 @@
 
 <%= link_to "Write Diagnosis", new_gp_diagnosis_path, :class=> "btn btn-large btn-primary" %></br></br>
 <%end%>
-<%end%>
+
 </div>

@@ -1,26 +1,25 @@
 <h1>Health Data History</h1>
 
-<table border = "1" >
+<table class = "table" >
   <tr>
-    <th> Date </th>
+    <th>Date </th>
     <th>Weight</th>
     <th>Height</th>
     <th>Respitory rate</th>
     <th>Blood pressure</th>
     <th>Coughs per day</th>
-    <th>Cigarettes per day</th>
+    <th></th>
    
   </tr>
 
 <% @health_data.each do |health_datum| %>
   <tr>
-    <td> <%= health_datum.created_at.to_date %></td>
+    <td><%= health_datum.created_at.to_date %></td>
     <td><%= health_datum.weight %></td>
     <td><%= health_datum.height %></td>
     <td><%= health_datum.respitory_rate %></td>
     <td><%= health_datum.blood_pressure %></td>
     <td><%= health_datum.coughs_per_day %></td>
-    <td><%= health_datum.cigs_per_day %></td>
     <td><%= link_to 'Show', health_datum %></td>
   </tr>
 <% end %>
@@ -28,4 +27,6 @@
 
 <br />
 
-<%= link_to 'Add Todays Health Data', new_health_datum_path %>
+<%if current_user.roles.first.name == "Nurse" %>
+<%= link_to 'Add Todays Health Data', new_health_datum_path, :class=> "btn btn-large btn-primary"  %>
+<%end%>

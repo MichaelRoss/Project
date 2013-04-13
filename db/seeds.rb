@@ -437,4 +437,342 @@ s = SensorData.new
    s.state = false
    s.save
 
+$i = 0
+while $i < 7 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
 
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+s.sensor = 48
+s.sensor_name = "MB-Bed Left"
+s.time = "2013-04-03 07:33:01"
+s.state = true
+s.save
+
+$i = 0
+while $i < 23 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
+
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+s.sensor = 48
+s.sensor_name = "MB-Bed Left"
+s.time = "2013-04-03 07:36:31"
+s.state = false
+s.save
+
+$i = 0
+while $i < 17 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
+
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+   s.sensor = 49
+   s.sensor_name = "MB-Wardrobe Right"
+   s.time = "2013-04-03 07:39:03"
+   s.state = true
+   s.save
+
+$i = 0
+while $i < 2 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
+
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+   s.sensor = 50
+   s.sensor_name = "MB-Wardrobe Left"
+   s.time = "2013-04-03 07:39:16"
+   s.state = true
+   s.save
+
+$i = 0
+while $i < 2 do
+   s = SensorData.new
+   s.sensor = 64
+   s.sensor_name = "Master Bedroom"
+   s.time = @@time.to_time+ 9.seconds
+   s.state = true
+   s.save
+
+   s1 = SensorData.new
+   s1.sensor = 64
+   s1.sensor_name = "Master Bedroom"
+   s1.time = @@time.to_time+ 10.seconds
+   s1.state = false
+   s1.save
+
+   $i +=1
+   @@time = s.time
+
+end
+
+s = SensorData.new
+s.sensor = 4
+s.sensor_name = "Main Bedroom Door"
+s.time = "2013-04-03 07:39:51.1"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 5
+s.sensor_name = "Main Bedroom Door"
+s.time = "2013-04-03 07:39:51.2"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 4
+s.sensor_name = "Main Bedroom Door"
+s.time = "2013-04-03 07:39:51.3"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 5
+s.sensor_name = "Main Bedroom Door"
+s.time = "2013-04-03 07:39:51.4"
+s.state = false
+s.save
+
+
+s = SensorData.new
+s.sensor = 61
+s.sensor_name = "Hallway"
+s.time = "2013-04-03 07:40:02"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 61
+s.sensor_name = "Hallway"
+s.time = "2013-04-03 07:40:03"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 61
+s.sensor_name = "Hallway"
+s.time = "2013-04-03 07:40:06"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 61
+s.sensor_name = "Hallway"
+s.time = "2013-04-03 07:40:07"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 61
+s.sensor_name = "Hallway"
+s.time = "2013-04-03 07:40:11"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 61
+s.sensor_name = "Hallway"
+s.time = "2013-04-03 07:40:12"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 7
+s.sensor_name = "Bathroom Door"  
+s.time = "2013-04-03 07:40:21.8"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 6
+s.sensor_name = "Bathroom Door"  
+s.time = "2013-04-03 07:40:21.9"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 7
+s.sensor_name = "Bathroom Door"  
+s.time = "2013-04-03 07:40:22.0"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 6
+s.sensor_name = "Bathroom Door"
+s.time = "2013-04-03 07:40:22.1"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:24"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:25"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:29"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:30"
+s.state = false
+s.save
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:36"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:37"
+s.state = false
+s.save
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:47"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:48"
+s.state = false
+s.save
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:55"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:40:56"
+s.state = false
+s.save
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:41:01"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:41:02"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:41:07"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 65
+s.sensor_name = "Bathroom"
+s.time = "2013-04-03 07:41:08"
+s.state = false
+s.save
+
+s = SensorData.new
+s.sensor = 52
+s.sensor_name = "Toilet"
+s.time = "2013-04-03 07:41:13"
+s.state = true
+s.save
+
+s = SensorData.new
+s.sensor = 52
+s.sensor_name = "Toilet"
+s.time = "2013-04-03 07:41:14"
+s.state = false
+s.save

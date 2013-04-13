@@ -1,5 +1,17 @@
 @import "bootstrap";
 
+.thumbnail{
+border: none;
+box-shadow: none;
+line-height:1.5;
+}
+
+.table{
+table-layout:fixed
+}
+
+
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -160,4 +172,5 @@ footer {
       }
     }
   }
+
 
