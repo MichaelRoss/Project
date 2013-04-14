@@ -4,7 +4,16 @@ class ApplicationController < ActionController::Base
 
   before_filter :check_authorization 
 
+
+
+
   private
+
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
+  end
+
+  helper_method :mobile_device?
     
    def check_authorization
     
@@ -21,7 +30,7 @@ class ApplicationController < ActionController::Base
      request.env["http_REFERER"] ? (redirect_to :back) : (redirect_to root_path)
      return false
     end 
-end
+  end
 end
 
 end
