@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :check_authorization 
 
-
-
-
   private
 
   def mobile_device?
