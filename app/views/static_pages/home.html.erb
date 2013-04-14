@@ -2,20 +2,19 @@
 <p> Role: <%= current_user.roles.first.name %>
 
 <% for_device_type :mobile do %>
-  	<%= "Mobile!!" %>
+  	<%= stylesheet_link_tag "mobile" %>
 <% end %>
 
 <div class="center hero-unit">
-	<div width = 100% >
   <h1>Home</h1>
 
 
 
-
-<%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-primary" %></br></br>
-<%= link_to "Request Meeting", new_meeting_path, :class=> "btn btn-large btn-primary" %></br></br>
-<%= link_to "View Meeting Requests", meetings_path, :class=> "btn btn-large btn-primary" %></br></br>
-
+<div width = "100%">
+<%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-block btn-primary" %></br></br>
+<%= link_to "Request Meeting", new_meeting_path, :class=> "btn btn-large btn-block btn-primary" %></br></br>
+<%= link_to "View Meeting Requests", meetings_path, :class=> "btn btn-large  btn-primary" %></br></br>
+</div>
 <%if current_user.roles.first.name != "Family" %>
 <%= link_to "Health Data", @Health_Data, :class=> "btn btn-large btn-primary" %></br></br>
 <%= link_to "Movement Outside The Home", gps_data_path, :class=> "btn btn-large btn-primary" %></br></br>
