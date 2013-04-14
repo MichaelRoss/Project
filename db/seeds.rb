@@ -142,32 +142,68 @@ r.controller = "sw_diaries"
 r.action = "create"
 r.save
 
+r = Right.new
+r.name = "meetings new"
+r.controller = "meetings"
+r.action = "new"
+r.save
+
+r = Right.new
+r.name = "meetings create"
+r.controller = "meetings"
+r.action = "create"
+r.save
+
+r = Right.new
+r.name = "meetings index"
+r.controller = "meetings"
+r.action = "index"
+r.save
+
+r = Right.new
+r.name = "meetings edit"
+r.controller = "meetings"
+r.action = "edit"
+r.save
+
+r = Right.new
+r.name = "meetings update"
+r.controller = "meetings"
+r.action = "update"
+r.save
+
+r = Right.new
+r.name = "meetings show"
+r.controller = "meetings"
+r.action = "show"
+r.save
+
 #allocate rights to roles
-[1,6,7,8,9,10,11,12,18,19,20,21].each do |i|
+[1,6,7,8,9,10,11,12,18,19,20,21,24,25,26,27,28,29].each do |i|
    rl = Role.find_by_id(1)
    rl.rights << Right.find_by_id(i)
    rl.save
 end
 
-[1,6,7,10,11,12,18,19,22,23].each do |i|
+[1,6,7,10,11,12,18,19,22,23,24,25,26,27,28,29].each do |i|
    rl = Role.find_by_id(2)
    rl.rights << Right.find_by_id(i)
    rl.save
 end
 
-[1,6,7,10,11,12,13,14,18,19,20,21].each do |i|
+[1,6,7,10,11,12,13,14,18,19,20,21,24,25,26,27,28,29].each do |i|
    rl = Role.find_by_id(3)
    rl.rights << Right.find_by_id(i)
    rl.save
 end
 
-[4,5,15,19].each do |i|
+[4,5,15,19,24,25,26,27,28,29].each do |i|
    rl = Role.find_by_id(4)
    rl.rights << Right.find_by_id(i)
    rl.save
 end
 
-[1,2,3,5,11,12,16,17,19].each do |i|
+[1,2,3,5,11,12,16,17,19,24,25,26,27,28,29].each do |i|
    rl = Role.find_by_id(5)
    rl.rights << Right.find_by_id(i)
    rl.save

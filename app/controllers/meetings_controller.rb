@@ -1,6 +1,4 @@
 class MeetingsController < ApplicationController
-
-  skip_before_filter  :check_authorization
   # GET /meetings
   # GET /meetings.json
   def index
