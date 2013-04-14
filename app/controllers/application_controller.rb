@@ -3,20 +3,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_filter :check_authorization 
-  before_filter :prepare_for_mobile
 
   private
 
-  def prepare_for_mobile
-    request.format = :mobile if mobile_device?
-  end
-
-  def mobile_device?
-    request.user_agent =~ /Mobile|webOS/
-  end
-
-  helper_method :mobile_device?
-    
    def check_authorization
     
    if !signed_in?
