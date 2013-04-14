@@ -3,6 +3,10 @@
 <div class="center hero-unit">
   <h1>Home</h1>
 
+  <% if request.env['mobvious.device_type'] == :mobile %>
+  <%= This is a mobile %>
+  <%end%> 
+
 
 <%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-primary" %></br></br>
 <%= link_to "Request Meeting", new_meeting_path, :class=> "btn btn-large btn-primary" %></br></br>
