@@ -1,9 +1,13 @@
 <p> You are signed in as <%= current_user.name%> </p>
 <p> Role: <%= current_user.roles.first.name %>
+
+<% for_device_type :mobile do %>
+  	<%= "Mobile!!" %>
+<% end %>
+
 <div class="center hero-unit">
   <h1>Home</h1>
 
-  <%= request.env['mobvious.device_type'] %>
 
 
 
