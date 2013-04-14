@@ -1,20 +1,16 @@
 <p> You are signed in as <%= current_user.name%> </p>
 <p> Role: <%= current_user.roles.first.name %>
 
-<% for_device_type :mobile do %>
-  	<%= stylesheet_link_tag "mobile" %>
-<% end %>
-
 <div class="center hero-unit">
   <h1>Home</h1>
 
 
 
-<div width = "100%">
-<%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-block btn-primary" %></br></br>
-<%= link_to "Request Meeting", new_meeting_path, :class=> "btn btn-large btn-block btn-primary" %></br></br>
-<%= link_to "View Meeting Requests", meetings_path, :class=> "btn btn-large  btn-primary" %></br></br>
-</div>
+
+<%= link_to "Sleep Data", sleep_data_path, :class=> "btn btn-large btn-primary" %></br></br>
+<%= link_to "Request Meeting", new_meeting_path, :class=> "btn btn-large btn-primary" %></br></br>
+<%= link_to "View Meeting Requests", meetings_path, :class=> "btn btn-large btn-primary" %></br></br>
+
 <%if current_user.roles.first.name != "Family" %>
 <%= link_to "Health Data", @Health_Data, :class=> "btn btn-large btn-primary" %></br></br>
 <%= link_to "Movement Outside The Home", gps_data_path, :class=> "btn btn-large btn-primary" %></br></br>

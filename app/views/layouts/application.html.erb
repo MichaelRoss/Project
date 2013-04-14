@@ -2,7 +2,13 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag "application" %>
+    <% for_device_type :mobile do %>
+      <%= stylesheet_link_tag "mobile" %>
+    <% end %>
+    <% for_device_type :desktop do %>
+      <%= stylesheet_link_tag "custom" %>
+    <% end %>
+    
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>    
