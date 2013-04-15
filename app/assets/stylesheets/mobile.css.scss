@@ -102,7 +102,7 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 40px;
   line-height: 1.7em;
 }
 
@@ -170,6 +170,19 @@ footer {
 
 .hero-unit{
 width: 100%
-
 }
+
+#navoption {
+  float: left;
+  margin-left: 20px;
+  font-size: 40px;
+  color: white;
+  padding-top: 9px;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 
