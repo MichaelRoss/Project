@@ -51,27 +51,24 @@ textarea {
 
 /* forms */
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
-}
-
 label {
 	font-size: 50px;
 	padding: 10px;
+	margin-left: 10px;
 }
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  font-size: 30px;
-  width: 30%;
+  font-size: 50px !important;
+  width: 100%;
   padding: 20px;
   display: inline-block;
   height: auto !important;
+  margin-left: 10px;
   margin-bottom: 15px;
-  @include box_sizing;
 }
+
+
 
 #error_explanation {
   color: #f00;
@@ -169,11 +166,11 @@ footer {
 }
 
 .btn-primary {
-  width: 75%;
-  font-size: 75px;
-  padding-top:20px;
-  padding-bottom:20px;
-  margin-bottom: 50px;
+  width: 75% !important;
+  font-size: 75px !important;
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+  margin-bottom: 50px !important;
 }
 
 .hero-unit{

@@ -11,11 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
     <%= f.label :no_of_cigs %><br />
-    <%= f.number_field :no_of_cigs %>
-  </div>
+    <%= f.number_field :no_of_cigs%>
+  
   <div class="actions">
-    <%= f.submit "Enter Number of Cigarettes" %>
+    <%= f.submit "Enter Number of Cigarettes", :class=> "btn btn-large btn-primary" %>
   </div>
 <% end %>
