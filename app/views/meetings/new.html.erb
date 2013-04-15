@@ -1,7 +1,6 @@
-<h1>New meeting</h1>
+<h1>Request a Meeting</h1>
 
 <div class="row">
-  <div class="span6 offset3">
       <%= form_for(@meeting) do |f| %>
         <% if @meeting.errors.any? %>
           <div id="error_explanation">
@@ -23,7 +22,7 @@
         </div>
         <div class="field">
           <%= f.label :date, "Date:" %><br />
-          <%= f.date_select :date %>
+          <%= f.date_select :date, :order => [:day, :month, :year], :class => "date"  %>
         </div>
         <div class="field">
           <%= f.label :time, "Time:" %><br />
@@ -39,6 +38,5 @@
         </div>
     <% end %>
 
-    <%= link_to 'Back', meetings_path %>
-  </div>
+    <%= link_to 'Back', meetings_path, :class=> "btn btn-large btn-primary" %>
 </div>
